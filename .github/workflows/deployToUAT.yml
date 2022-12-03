@@ -24,18 +24,18 @@ jobs:
                   ~/sfdx/bin/sfdx version
                   
             # Store secret for acc org
-            - name: 'Populate auth file with DEVHUB_SFDX_URL secret'
+            - name: 'Populate auth file with UAT_SFDX_AUTH_URL secret'
               shell: bash
               run: |
-                  echo ${{ secrets.DEVHUB_SFDX_URL}} > ./DEVHUB_SFDX_URL.txt
-                  secretFileSize=$(wc -c "./DEVHUB_SFDX_URL.txt" | awk '{print $1}')
+                  echo ${{ secrets.UAT_SFDX_AUTH_URL}} > ./UAT_SFDX_AUTH_URL.txt
+                  secretFileSize=$(wc -c "./UAT_SFDX_AUTH_URL.txt" | awk '{print $1}')
                   if [ $secretFileSize == 1 ]; then
-                      echo "Missing DEVHUB_SFDX_URL secret. Is this workflow running on a fork?";
+                      echo "Missing DEVHUB_SFDX_URUAT_SFDX_AUTH_URLL secret. Is this workflow running on a fork?";
                       exit 1;
                   fi
             # Authenticate UAT
             - name: 'Authenticate UAT'
-              run: sfdx force:auth:web:login -r https://test.salesforce.com -a ybsforuat
+              run: sfdx auth:sfdxurl:store -f ./UAT_SFDX_AUTH_URL.txt -a meeraacc -d
               
             # Deploy source to Acc org
             - name: 'Push source to UAT org'
