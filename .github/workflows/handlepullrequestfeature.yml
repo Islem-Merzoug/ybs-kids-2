@@ -5,7 +5,7 @@ name: HandlePullRequesttoMaster
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   pull_request:
-    branches: master
+    branches: develop
    # Jobs to be executed
 jobs:
     pmd-run:
@@ -54,7 +54,7 @@ jobs:
                       exit 1;
                   fi
                   
-          # Authenticate dev hub
+            # Authenticate dev hub
             - name: 'Authenticate Dev Hub'
               run: sfdx auth:sfdxurl:store -f ./DEVHUB_SFDX_URL.txt -a devhub -d
 
