@@ -42,3 +42,4 @@ jobs:
             github_token: ${{ secrets.REPO_SCOPED_TOKEN }}
             title: Automatic pull request                           
             get_diff: true         
+ 
