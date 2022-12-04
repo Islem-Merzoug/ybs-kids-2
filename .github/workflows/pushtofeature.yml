@@ -36,7 +36,7 @@ jobs:
       - name: Run the Action 
         if: startsWith(github.ref, 'refs/heads/demo')
         uses: devops-infra/action-pull-request@v0.4.2
-        base: develop
+        target_branch: develop
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_SCOPED_TOKEN }}
         with:
