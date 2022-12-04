@@ -5,7 +5,7 @@ name: PushToFeature
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: featurebranch
+    branches: demobranch
    # Jobs to be executed
 jobs:
     pmd-run:
@@ -26,7 +26,7 @@ jobs:
             # Run PMD scan
             - name: 'Run PMD scan'
               run: ~/pmd/bin/run.sh pmd -d force-app -R pmd/ruleset.xml -f text
-    action-pull-request-develop:
+    action-pull-request:
       runs-on: ubuntu-latest
       steps:
       - name: Checkout repoistory
@@ -43,3 +43,4 @@ jobs:
           github_token: ${{ secrets.REPO_SCOPED_TOKEN }}
           title: Automatic pull request                           
           get_diff: true      
+             
