@@ -39,6 +39,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_SCOPED_TOKEN }}
         with:
+          target_branch: develop
           github_token: ${{ secrets.REPO_SCOPED_TOKEN }}
           title: Automatic pull request                           
           get_diff: true      
