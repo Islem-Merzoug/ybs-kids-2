@@ -35,8 +35,6 @@ jobs:
           fetch-depth: 0
       - name: Run the Action
         uses: devops-infra/action-pull-request@v0.4.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPO_SCOPED_TOKEN }}
         with:
             github_token: ${{ secrets.REPO_SCOPED_TOKEN }}
             title: Automatic pull request                           
